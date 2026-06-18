@@ -1,0 +1,165 @@
+binds {
+    // =========================================================================
+    // 1. CORE APPLICATION LAUNCHERS (Hyprland Style)
+    // =========================================================================
+    Mod+Return hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
+    Mod+B      hotkey-overlay-title="Open Browser"  { spawn "firefox"; }
+    Mod+F      hotkey-overlay-title="File Manager"  { spawn "nautilus"; }
+    Mod+Space  hotkey-overlay-title="App Launcher"  { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+
+    // =========================================================================
+    // 2. WORKSPACE NAVIGATION (Super + Number)
+    // =========================================================================
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    Mod+I         { focus-workspace-up; }
+    Mod+U         { focus-workspace-down; }
+
+    Mod+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
+    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+
+    // =========================================================================
+    // 3. MOVE WINDOWS TO WORKSPACE (Super + Ctrl + Number)
+    // =========================================================================
+    Mod+Ctrl+1 { move-column-to-workspace 1; }
+    Mod+Ctrl+2 { move-column-to-workspace 2; }
+    Mod+Ctrl+3 { move-column-to-workspace 3; }
+    Mod+Ctrl+4 { move-column-to-workspace 4; }
+    Mod+Ctrl+5 { move-column-to-workspace 5; }
+    Mod+Ctrl+6 { move-column-to-workspace 6; }
+    Mod+Ctrl+7 { move-column-to-workspace 7; }
+    Mod+Ctrl+8 { move-column-to-workspace 8; }
+    Mod+Ctrl+9 { move-column-to-workspace 9; }
+
+    Mod+Ctrl+Up   { move-column-to-workspace-up; }
+    Mod+Ctrl+Down { move-column-to-workspace-down; }
+    Mod+Ctrl+I    { move-column-to-workspace-up; }
+    Mod+Ctrl+U    { move-column-to-workspace-down; }
+
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+
+    // =========================================================================
+    // 4. WINDOW MANAGEMENT & RESIZING (Super + Shift)
+    // =========================================================================
+    // Moving Windows / Columns
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Down  { move-window-down; }
+
+    // Moving Entire Workspaces
+    Mod+Shift+I         { move-workspace-up; }
+    Mod+Shift+U         { move-workspace-down; }
+
+    // Window States & Sizing
+    Mod+Shift+F     { fullscreen-window; }
+    Mod+Shift+T     { toggle-window-floating; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+R     { switch-preset-window-height; }
+
+    Mod+Shift+WheelScrollUp   { focus-column-left; }
+    Mod+Shift+WheelScrollDown { focus-column-right; }
+
+    // System Action
+    Mod+Shift+E { quit; }
+    Mod+Shift+P { power-off-monitors; }
+
+    // =========================================================================
+    // 5. WINDOW FOCUS & GENERAL LAYOUT CONTROLS (Super Only)
+    // =========================================================================
+    Mod+Q repeat=false { close-window; }
+    Mod+C              { center-column; }
+    Mod+R              { switch-preset-column-width; }
+    Mod+Equal          { set-column-width "+10%"; }
+    Mod+Minus          { set-column-width "-10%"; }
+    Mod+Alt+F          { maximize-column; }
+
+    // Navigation Focus
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Up    { focus-window-up; }
+    Mod+Down  { focus-window-down; }
+
+    // Layout Utilities
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Ctrl+C       { center-visible-columns; }
+    Mod+Ctrl+F       { expand-column-to-available-width; }
+    Mod+Ctrl+R       { reset-window-height; }
+    Mod+Ctrl+Home    { move-column-to-first; }
+    Mod+Ctrl+End     { move-column-to-last; }
+
+    // Monitor Focus (Up/Down removed to fix workspace conflict)
+    Mod+Ctrl+Left  { focus-monitor-left; }
+    Mod+Ctrl+Right { focus-monitor-right; }
+    Mod+Ctrl+H     { focus-monitor-left; }
+    Mod+Ctrl+L     { focus-monitor-right; }
+    Mod+Ctrl+K     { focus-monitor-up; }
+    Mod+Ctrl+J     { focus-monitor-down; }
+
+    // Mouse Wheels Layout Shifts
+    Mod+WheelScrollLeft            { focus-column-left; }
+    Mod+WheelScrollRight           { focus-column-right; }
+    Mod+Ctrl+WheelScrollLeft       { move-column-left; }
+    Mod+Ctrl+WheelScrollRight      { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+
+    // UI View Overlays
+    Mod+D repeat=false   { toggle-overview; }
+    Mod+Tab repeat=false { toggle-overview; }
+
+    // =========================================================================
+    // 6. DMS COMPONENT & SHELL INTELLIGENCE TOGGLES
+    // =========================================================================
+    Mod+Comma       hotkey-overlay-title="Settings"            { spawn "dms" "ipc" "call" "settings" "focusOrToggle"; }
+    Mod+M           hotkey-overlay-title="Task Manager"        { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
+    Mod+N           hotkey-overlay-title="Notification Center" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
+    Mod+V           hotkey-overlay-title="Clipboard Manager"   { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    Super+W         hotkey-overlay-title="Wallpaper Browser"   { spawn "dms" "ipc" "call" "dankdash" "wallpaper"; }
+    Super+X         hotkey-overlay-title="Power Menu: Toggle"  { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
+    Mod+Shift+N     hotkey-overlay-title="Notepad"             { spawn "dms" "ipc" "call" "notepad" "toggle"; }
+    Ctrl+Shift+R    hotkey-overlay-title="Rename Workspace"    { spawn "dms" "ipc" "call" "workspace-rename" "open"; }
+    Ctrl+Alt+Delete hotkey-overlay-title="Task Manager"        { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
+
+    Mod+Shift+Slash                                            { show-hotkey-overlay; }
+
+    // =========================================================================
+    // 7. SCREENSHOTS
+    // =========================================================================
+    Print            { screenshot; }
+    XF86Launch1      { screenshot; }
+    Ctrl+Print       { screenshot-screen; }
+    Ctrl+XF86Launch1 { screenshot-screen; }
+    Alt+Print        { screenshot-window; }
+    Alt+XF86Launch1  { screenshot-window; }
+
+    // =========================================================================
+    // 8. HARDWARE & MEDIA KEY INTERFACES
+    // =========================================================================
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "3"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "3"; }
+    XF86AudioMute        allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "micmute"; }
+
+    Ctrl+XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "increment" "3"; }
+    Ctrl+XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "decrement" "3"; }
+    XF86AudioPlay             allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+    XF86AudioPause            allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+    XF86AudioNext             allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "next"; }
+    XF86AudioPrev             allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "previous"; }
+
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""; }
+    Mod+Alt+L hotkey-overlay-title="Lock Screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
+}
