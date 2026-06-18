@@ -43,7 +43,7 @@ starship preset pastel-powerline -o ~/.config/starship.toml
 echo "starship init fish | source" >> ~/.config/fish/config.fish
 
 echo "Configuring Niri Binds & Layout..."
-mkdir -p ~/.config/niri
+mkdir -p ~/.config/niri/dms
 # Assumes binds.kdl is in current dir
 cp binds.kdl ~/.config/niri/dms
 
